@@ -1,0 +1,567 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EduPortal - Educational Course Portal</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f7ff;
+    color: #172554;
+    line-height: 1.6;
+}
+
+header {
+    background: white;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px #00000010;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: #4f46e5;
+}
+
+nav a {
+    text-decoration: none;
+    color: #334155;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #4f46e5;
+}
+
+.hero {
+    padding: 75px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    background: linear-gradient(120deg, #e0e7ff, #f5f3ff);
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero h1 {
+    font-size: 43px;
+    line-height: 1.2;
+    margin: 15px 0;
+}
+
+.hero p {
+    color: #64748b;
+    margin-bottom: 25px;
+}
+
+.btn {
+    display: inline-block;
+    background: #4f46e5;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 7px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background: #3730a3;
+}
+
+.hero-card {
+    background: white;
+    padding: 35px;
+    border-radius: 18px;
+    text-align: center;
+    max-width: 350px;
+    box-shadow: 0 10px 30px #00000010;
+}
+
+.hero-card .icon {
+    font-size: 65px;
+}
+
+.hero-card h2 {
+    margin: 10px 0;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.stats strong {
+    display: block;
+    color: #4f46e5;
+    font-size: 20px;
+}
+
+.stats span {
+    color: #64748b;
+    font-size: 12px;
+}
+
+section {
+    padding: 55px 8%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.section-title h2 {
+    font-size: 32px;
+}
+
+.section-title p {
+    color: #64748b;
+}
+
+.courses {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.course-card {
+    padding: 25px;
+    border-radius: 13px;
+    background: white;
+    border: 1px solid #e2e8f0;
+    transition: 0.2s;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px #00000010;
+}
+
+.course-icon {
+    font-size: 40px;
+}
+
+.course-card h3 {
+    margin: 12px 0;
+}
+
+.course-card p {
+    color: #64748b;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.duration {
+    color: #4f46e5;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.register-section {
+    background: #eef2ff;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px #0000000b;
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.form-container > p {
+    text-align: center;
+    color: #64748b;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin: 14px 0 6px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    font-size: 14px;
+    background: white;
+}
+
+input:focus, select:focus {
+    outline: 2px solid #c7d2fe;
+    border-color: #4f46e5;
+}
+
+.error {
+    display: block;
+    color: #dc2626;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.form-container button {
+    width: 100%;
+    margin-top: 22px;
+}
+
+.success {
+    display: none;
+    background: #dcfce7;
+    color: #166534;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+.about {
+    text-align: center;
+}
+
+.about p {
+    max-width: 750px;
+    margin: 15px auto;
+    color: #64748b;
+}
+
+footer {
+    background: #172554;
+    color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+footer p {
+    font-size: 13px;
+    color: #cbd5e1;
+}
+
+@media (max-width: 800px) {
+    header {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    nav a {
+        margin: 0;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 50px 6%;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .courses {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 520px) {
+    .courses {
+        grid-template-columns: 1fr;
+    }
+
+    .form-container {
+        padding: 20px;
+    }
+
+    .stats {
+        gap: 8px;
+    }
+
+    section {
+        padding: 40px 5%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">📚 EduPortal</div>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#courses">Courses</a>
+        <a href="#about">About</a>
+        <a href="#register">Register</a>
+    </nav>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <p><strong>LEARN • GROW • SUCCEED</strong></p>
+        <h1>Unlock Your Potential with Online Learning</h1>
+        <p>
+            Explore exciting courses, learn new skills and
+            prepare yourself for a successful career.
+        </p>
+        <a href="#courses" class="btn">Explore Courses →</a>
+        <a href="#register" class="btn">Join Now</a>
+    </div>
+
+    <div class="hero-card">
+        <div class="icon">🎓</div>
+        <h2>Your Learning Journey Starts Here</h2>
+        <p>Learn new skills anytime and anywhere.</p>
+        <div class="stats">
+            <div><strong>6+</strong><span>Courses</span></div>
+            <div><strong>24/7</strong><span>Access</span></div>
+            <div><strong>100%</strong><span>Learning</span></div>
+        </div>
+    </div>
+</section>
+
+<section id="courses">
+    <div class="section-title">
+        <h2>Explore Our Courses</h2>
+        <p>Choose a course and start learning today.</p>
+    </div>
+
+    <div class="courses">
+        <div class="course-card">
+            <div class="course-icon">💻</div>
+            <h3>Web Development</h3>
+            <p>Learn HTML, CSS, JavaScript and website development.</p>
+            <span class="duration">⏱ 8 Weeks</span>
+        </div>
+
+        <div class="course-card">
+            <div class="course-icon">🐍</div>
+            <h3>Python Programming</h3>
+            <p>Learn Python fundamentals and problem-solving skills.</p>
+            <span class="duration">⏱ 6 Weeks</span>
+        </div>
+
+        <div class="course-card">
+            <div class="course-icon">📊</div>
+            <h3>Data Science</h3>
+            <p>Discover data analysis and data visualization.</p>
+            <span class="duration">⏱ 10 Weeks</span>
+        </div>
+
+        <div class="course-card">
+            <div class="course-icon">🤖</div>
+            <h3>Artificial Intelligence</h3>
+            <p>Explore AI concepts and machine learning basics.</p>
+            <span class="duration">⏱ 12 Weeks</span>
+        </div>
+
+        <div class="course-card">
+            <div class="course-icon">🗄️</div>
+            <h3>Database Management</h3>
+            <p>Understand SQL, databases and queries.</p>
+            <span class="duration">⏱ 5 Weeks</span>
+        </div>
+
+        <div class="course-card">
+            <div class="course-icon">🎨</div>
+            <h3>UI/UX Design</h3>
+            <p>Design attractive and user-friendly interfaces.</p>
+            <span class="duration">⏱ 6 Weeks</span>
+        </div>
+    </div>
+</section>
+
+<section class="about" id="about">
+    <div class="section-title">
+        <h2>About EduPortal</h2>
+    </div>
+    <p>
+        EduPortal is an educational course portal designed to help
+        students explore courses, develop new skills and discover
+        learning opportunities through a simple and responsive website.
+    </p>
+</section>
+
+<section class="register-section" id="register">
+    <div class="form-container">
+        <h2>Student Registration</h2>
+        <p>Create your account and choose your course.</p>
+
+        <form id="registrationForm" novalidate>
+            <label for="name">Full Name</label>
+            <input id="name" name="name" placeholder="Enter your name">
+            <span class="error" id="nameError"></span>
+
+            <label for="email">Email Address</label>
+            <input id="email" name="email" type="email"
+                   placeholder="student@example.com">
+            <span class="error" id="emailError"></span>
+
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password"
+                   placeholder="Minimum 8 characters">
+            <span class="error" id="passwordError"></span>
+
+            <label for="age">Age</label>
+            <input id="age" name="age" type="number"
+                   placeholder="Age between 18 and 30">
+            <span class="error" id="ageError"></span>
+
+            <label for="mobile">Mobile Number</label>
+            <input id="mobile" name="mobile" type="tel"
+                   maxlength="10" placeholder="10-digit mobile number">
+            <span class="error" id="mobileError"></span>
+
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender">
+                <option value="">Select gender</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+                <option>Prefer not to say</option>
+            </select>
+            <span class="error" id="genderError"></span>
+
+            <label for="state">State</label>
+            <select id="state" name="state">
+                <option value="">Select state</option>
+                <option>Tamil Nadu</option>
+                <option>Kerala</option>
+                <option>Karnataka</option>
+                <option>Andhra Pradesh</option>
+                <option>Other</option>
+            </select>
+            <span class="error" id="stateError"></span>
+
+            <label for="course">Select Course</label>
+            <select id="course" name="course">
+                <option value="">Choose a course</option>
+                <option>Web Development</option>
+                <option>Python Programming</option>
+                <option>Data Science</option>
+                <option>Artificial Intelligence</option>
+                <option>Database Management</option>
+                <option>UI/UX Design</option>
+            </select>
+            <span class="error" id="courseError"></span>
+
+            <button type="submit" class="btn">
+                Submit Registration
+            </button>
+
+            <div class="success" id="successMessage" role="status">
+                <h3>Registration Successful!</h3>
+                <p id="welcomeMessage"></p>
+            </div>
+        </form>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <h3>📚 EduPortal</h3>
+    <p>Learn today. Lead tomorrow.</p>
+    <p>© 2026 EduPortal | Educational Course Portal</p>
+</footer>
+
+<script>
+const form = document.getElementById("registrationForm");
+
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+    const age = document.getElementById("age").value;
+    const mobile = document.getElementById("mobile").value.trim();
+    const gender = document.getElementById("gender").value;
+    const state = document.getElementById("state").value;
+    const course = document.getElementById("course").value;
+
+    const errors = {
+        name: !/^[A-Za-z ]+$/.test(name),
+        email: !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email),
+        password: !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/.test(password),
+        age: !/^\d+$/.test(age) || Number(age) < 18 || Number(age) > 30,
+        mobile: !/^\d{10}$/.test(mobile),
+        gender: !gender,
+        state: !state,
+        course: !course
+    };
+
+    const messages = {
+        name: "Enter a valid name using letters and spaces.",
+        email: "Enter a valid email address.",
+        password: "Use 8+ characters with uppercase, lowercase and a number.",
+        age: "Age must be between 18 and 30.",
+        mobile: "Mobile number must contain exactly 10 digits.",
+        gender: "Please select your gender.",
+        state: "Please select your state.",
+        course: "Please select a course."
+    };
+
+    let valid = true;
+
+    for (const field in errors) {
+        document.getElementById(field + "Error").textContent =
+            errors[field] ? messages[field] : "";
+
+        if (errors[field]) {
+            valid = false;
+        }
+    }
+
+    const success = document.getElementById("successMessage");
+
+    if (valid) {
+        document.getElementById("welcomeMessage").textContent =
+            "Welcome, " + name + "! Your selected course is " + course + ".";
+
+        success.style.display = "block";
+        success.scrollIntoView({ behavior: "smooth", block: "center" });
+    } else {
+        success.style.display = "none";
+    }
+});
+</script>
+
+</body>
+</html>
